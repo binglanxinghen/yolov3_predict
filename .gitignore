@@ -1,5 +1,6 @@
 *.py[cod]
 .*.swp
+.*.swm
 checkpoint/
 __pycache__/
 flow_result.txt
