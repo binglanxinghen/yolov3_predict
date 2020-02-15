@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-waterfall.js"></script>
+    <style>
+        .ListFlow{
+            width: 350px;
+        }
+        .ListCon{
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+<div id="waterfall-container" >
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/1.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/2.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/3.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/4.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/5.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/6.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/1.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/2.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/3.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/4.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/5.jpg">
+    </div>
+    <div class="ListCon">
+        <img class="ListFlow" src="../static/picture/6.jpg">
+    </div>
+</div>
+</div>
+<script id="waterfall-template">
+//     $(document).ready(function () {
+//   $('#waterfall-container').waterfall();
+// });
+    var list = {
+    'dataImg': [{
+        'img': 'picture/1.jpg',
+        'title': '111111111',
+        'desc': '2019年啦！'
+    }, {
+        'img': 'picture/6.jpg',
+        'title': '22222222222',
+        'desc': '2019年啦！'
+    }, {
+        'img': 'picture/8.jpg',
+        'title': '33333333333',
+        'desc': '2019年啦！'
+    }, {
+        'img': 'picture/3.jpg',
+        'title': '444444444',
+        'desc': '2019年啦！'
+    }]
+};
+
+    var contenthtml ="";
+    $.each(list.dataImg, function(index,value) {
+        contenthtml+="<div class=\"ListCon\">";
+        contenthtml+="<div class=\"thumbnail\">";
+        contenthtml+="<h5><a href=\"detail.html\">"+value.title+"</a></h5>";
+        contenthtml+="<div class=\"img-thumbnail\">";
+        contenthtml+="<a href=\"detail.html\"><img class=\"ListFlow\" src=\"../static/"+value.img+"\" ></a>";
+        contenthtml+="</div>";
+        // contenthtml+="<div class=\"caption\">";
+        // contenthtml+="<p>"+value.desc+"</p>";
+        // contenthtml+="<p class=\"shadowBg\">";
+        // contenthtml+="<a href=\"addnew.html\" class=\"glyphicon glyphicon-pencil\" role=\"button\"></a>";
+        // contenthtml+="<a href=\"javascript:;\" class=\"glyphicon glyphicon-trash\" role=\"button\"></a>";
+        // contenthtml+="</p>";
+        // contenthtml+="</div>";
+        contenthtml+="</div>";
+        contenthtml+="</div>";
+    });
+
+    // $('#waterfall-container').innerHTML+=contenthtml;
+document.getElementById("waterfall-container").innerHTML +=contenthtml;
+    $('#waterfall-container').waterfall();
+    // $('#waterfall-container').data('bootstrap-waterfall-template', $('#waterfall-template').html()).waterfall();
+</script>
+
+<!--<script type="text/javascript">-->
+<!--    $('#waterfall-container').data('bootstrap-waterfall-template', $('#waterfall-template').html());-->
+<!--    $('#waterfall-container').waterfall();-->
+<!--</script>-->
+</body>
+</html>

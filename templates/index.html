@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block title %}
+首页
+{% endblock %}
+
+{% block header %}
+<!--<link rel="stylesheet" href="../static/css/mycss.css">-->
+<style>
+    .imgcss1{
+        width: 20rem;
+        height: 20rem;
+        border-radius: 10px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: inline-block;
+    }
+    .inputcss{
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+</style>
+<script type="text/javascript">
+    function click1() {
+        document.getElementById('file1').click();
+    }
+    function click2() {
+        document.getElementById('file2').click();
+    }
+    function change1(file){
+        if(file.files[0] != null){
+            document.getElementById('submit1').click();
+        }
+    }
+    function change2(file){
+        if(file.files[0] != null){
+            document.getElementById('submit2').click();
+        }
+    }
+</script>
+{% endblock %}
+
+{% block main %}
+<div class="carousel slide" id="carousel-89397">
+    <ol class="carousel-indicators">
+        <li class="active" data-slide-to="0" data-target="#carousel-89397">
+        </li>
+        <li data-slide-to="1" data-target="#carousel-89397">
+        </li>
+        <li data-slide-to="2" data-target="#carousel-89397">
+        </li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active divcss" >
+            <img alt="玫瑰" class="imgcss" src="{{ url_for('static',filename='img/rose.jpeg') }}" />
+            <div class="carousel-caption">
+                <h4>
+                    玫瑰
+                </h4>
+                <p>
+                   玫瑰原产中国，栽培历史悠久，玫瑰在植物分类学上是一种蔷薇科蔷薇属灌木(Rosa rugosa)，“玫瑰”现在常被引用为蔷薇属一系列花大艳丽的栽培品种的别称，这些栽培品种亦可称做现代月季或现代蔷薇。
+                </p>
+            </div>
+        </div>
+        <div class="item divcss">
+            <img alt="雏菊" class="imgcss" src="{{ url_for('static',filename='img/daisy03.jpg') }}" />
+            <div class="carousel-caption">
+                <h4>
+                    雏菊
+                </h4>
+                <p>
+                    雏菊，又名马头兰花、延命菊，春菊、太阳菊等。原产于欧洲,是菊科雏菊属植物的一种，属于多年生草本植物。早春开花，生气盎然，具有君子的风度和天真烂漫的风采，深得意大利人的喜爱，因而推举为国花。
+                </p>
+            </div>
+        </div>
+        <div class="item divcss">
+            <img alt="郁金香" class="imgcss" src="{{ url_for('static',filename='img/tulip2.jpg') }}" />
+            <div class="carousel-caption">
+                <h4>
+                    郁金香
+                </h4>
+                <p>
+                    郁金香，是百合科郁金香属的多年生草本植物，具球茎。英文名为“Garden tulip”或“Didier's tulip”。郁金香被广泛认为原产于土耳其，是土耳其、荷兰、匈牙利等国的国花。花单朵顶生，大型而艳丽，花被片红色或杂有白色和黄色。
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#carousel-89397" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-89397" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+<div style="margin-top: 20px" class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="row clearfix">
+                    <div class="col-md-12 column" >
+                        <div class="page-header">
+                            <h1>
+                                花朵识别 <small>提供</small>
+                            </h1>
+                        </div>
+                        <div class="col-md-12" style="background-color: aliceblue;">
+                            <div style="padding: 50px" align="center" class="center col-md-6">
+                                <form action = "{{ url_for('camera') }}" method = "POST" enctype = "multipart/form-data">
+                                     <div class="thumbnail imgcss1" align="center" style="background-image: url('{{ url_for('static',filename='img/camera.jpg') }}');">
+                                         <input id="file1" class="inputcss" name="file1" type="file" accept="image/*" onchange="change1(this)">
+                                         <button type="button" style="margin-top: 10px" onclick="click1()" class="btn btn-info">拍照上传</button>
+                                     </div>
+                                         <input id="submit1" type = "submit" style="display: none;"/>
+                                </form>
+                            </div>
+                            <div style="padding: 50px" align="center" class="center col-md-6">
+                                <form action = "{{ url_for('upload') }}" method = "POST" enctype = "multipart/form-data">
+                                     <div  align="center" class="thumbnail imgcss1" style="background-image: url('{{ url_for('static',filename='img/upload.png') }}');">
+                                         <input id="file2" class="inputcss" name="file2" type="file" accept="image/*" onchange="change2(this)">
+                                         <button type="button" style="margin-top: 10px" onclick="click2()" class="btn btn-info">选择文件</button>
+                                     </div>
+                                         <input id="submit2" type = "submit" style="display: none"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

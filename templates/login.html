@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <!-- Author Meta -->
+    <meta name="author" content="Colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>登录</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/verefyCode.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function checkPwd(){
+            var pwd1=document.getElementById('password');
+            var pwd2=document.getElementById('repwd');
+            if(pwd1.value!=pwd2.value){
+                document.getElementById('tip').innerText='两次密码不一致';
+                return false;
+            }
+            document.getElementById('tip').innerText='';
+            return true;
+        }
+    </script>
+    </head>
+    <body>
+        <section class="contact-area pt-100 pb-100" style="margin-top: 10%" id="contact">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-4 title-section">
+                        <h2 class="text-uppercase">
+                            Register <br>
+                            An<br>
+                            Account
+                        </h2>
+                        <p>
+                            畅想科技，引领未来
+                        </p>
+                    </div>
+                    <div class="col-lg-8">
+                            <form id="myForm" action="{{ url_for('login') }}" method="post" class="contact-form" onsubmit="document.getElementById('modal-3360233').click();return false;">
+                                <div class="row justify-content-center">
+                                    <div class=" col-lg-offset-3 col-lg-6">
+                                        <input name="email" placeholder="邮箱" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mt-20" required="" type="text" autofocus>
+<!--&lt;!&ndash;                                        <input name="email" placeholder="邮箱" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mt-20" required="" type="email">&ndash;&gt;-->
+                                        <input name="password" type="password" placeholder="密码" class="common-input mt-20" minlength="6" required>
+                                        <p id="tip" style="color: red"></p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+<!--                                        <textarea class="common-textarea mt-20" name="message" placeholder="个人简介"></textarea>-->
+                                        <div class="col-md-12 column">
+                                             <a id="modal-3360233" style="display: none;" href="#modal-container-336023" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
+                                            <div class="modal fade" id="modal-container-336023" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content" align="center">
+                                                        <div class="modal-header">
+                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                            <h4 class="modal-title" id="myModalLabel">
+                                                                验证
+                                                            </h4>
+                                                        </div>
+                                                        <div class="modal-body" style="width: 340px">
+                                                            <div id="captcha" style="position: relative"></div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                             <button id="btnclose" type="button" style="display: none" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-msg"></div>
+                                    </div>
+                                </div>
+                                <div class="row col-lg-6 col-lg-offset-2" align="center">
+                                    <input type="submit" class="primary-btn" style="color: white;" value="登录">
+                                    还没有账号？去<a href="{{url_for('register')}}" style="line-height:40px;margin-right:10px">注册</a>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <script type="text/javascript" src="../static/js/verifyCode.js"></script>
+    <script type="text/javascript">
+    jigsaw.init(document.getElementById('captcha'), function () {
+        // alert('成功');
+        document.getElementById('btnclose').click();
+        document.getElementById("myForm").submit();
+    })
+    </script>
+        <footer class="footer-area">
+            <div class="container">
+                <div class="row footer-content">
+                    <div class="col-lg-6 copy-right-text" align="center">
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">不吃猫的鱼</a>
+                        <address>厦门大学嘉庚学院</address>
+                    </div>
+                </div>
+            </div>
+        </footer>
+{% if error %}
+<script type="text/javascript">
+    alert("账号或密码错误！");
+</script>
+{% endif %}
+    </body>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="sxl" class="no-js">-->
+<!--<head>-->
+<!--    &lt;!&ndash; Mobile Specific Meta &ndash;&gt;-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<!--    &lt;!&ndash; Author Meta &ndash;&gt;-->
+<!--    <meta name="author" content="Colorlib">-->
+<!--    &lt;!&ndash; Meta Description &ndash;&gt;-->
+<!--    <meta name="description" content="">-->
+<!--    &lt;!&ndash; Meta Keyword &ndash;&gt;-->
+<!--    <meta name="keywords" content="">-->
+<!--    &lt;!&ndash; meta character set &ndash;&gt;-->
+<!--    <meta charset="UTF-8">-->
+<!--    &lt;!&ndash; Site Title &ndash;&gt;-->
+<!--    <title>登录</title>-->
+
+<!--    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">-->
+<!--    <link rel="stylesheet" href="../static/css/main.css">-->
+<!--    <link rel="stylesheet" href="../static/css/verefyCode.css">-->
+<!--    <link rel="stylesheet" href="../static/css/bootstrap.min.css">-->
+<!--    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
+<!--    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<!--    </head>-->
+<!--    <body>-->
+
+<!--        &lt;!&ndash; Start contact Area &ndash;&gt;-->
+<!--        <section class="contact-area pt-100 pb-100" style="margin-top: 10%" id="contact">-->
+<!--            <div class="container">-->
+<!--                <div class="row d-flex justify-content-center">-->
+<!--                    <div class="col-lg-4 title-section">-->
+<!--                        <h2 class="text-uppercase">-->
+<!--                            Login <br>-->
+<!--                            By<br>-->
+<!--                            Account-->
+<!--                        </h2>-->
+<!--                        <p>-->
+<!--                            畅想科技，引领未来-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-8">-->
+<!--                            <form id="myForm" action="{{ url_for('login') }}" method="post" class="contact-form" onsubmit="document.getElementById('modal-3360233').click();return false;">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-lg-offset-3 col-lg-6">-->
+<!--                                        <input name="email" placeholder="邮箱" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mt-20" required="" type="text" autofocus>-->
+<!--&lt;!&ndash;                                        <input name="email" placeholder="邮箱" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mt-20" required="" type="email">&ndash;&gt;-->
+<!--                                        <input name="password" type="password" placeholder="密码" class="common-input mt-20" minlength="6" required>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="col-lg-6">-->
+<!--&lt;!&ndash;                                        <textarea class="common-textarea mt-20" name="message" placeholder="个人简介"></textarea>&ndash;&gt;-->
+<!--                                        <div class="col-md-12 column">-->
+<!--                                             <a id="modal-3360233" style="display: none" href="#modal-container-336023" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>-->
+
+<!--                                            <div class="modal fade" id="modal-container-336023" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+<!--                                                <div class="modal-dialog">-->
+<!--                                                    <div class="modal-content" align="center">-->
+<!--                                                        <div class="modal-header">-->
+<!--                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+<!--                                                            <h4 class="modal-title" id="myModalLabel">-->
+<!--                                                                验证-->
+<!--                                                            </h4>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="modal-body" style="width: 340px">-->
+<!--                                                            <div id="captcha" style="position: relative"></div>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="modal-footer">-->
+<!--                                                             <button id="btnclose" type="button" style="display: none" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="alert-msg"></div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row col-lg-6 col-lg-offset-2" align="center">-->
+<!--                                    <input type="submit" class="primary-btn" style="color: white;" value="登录">-->
+<!--                                    还没有账号？去<a href="{{url_for('register')}}" style="line-height:40px;margin-right:10px">注册</a>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--    <script type="text/javascript" src="../static/js/verifyCode.js"></script>-->
+<!--    <script type="text/javascript">-->
+<!--    jigsaw.init(document.getElementById('captcha'), function () {-->
+<!--        // alert('成功');-->
+<!--        document.getElementById('btnclose').click();-->
+<!--        document.getElementById("myForm").submit();-->
+<!--    })-->
+<!--    </script>-->
+<!--        <footer class="footer-area">-->
+<!--            <div class="container">-->
+<!--                <div class="row footer-content">-->
+<!--                    <div class="col-lg-6 copy-right-text" align="center">-->
+<!--                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">不吃猫的鱼</a>-->
+<!--                        <address>厦门大学嘉庚学院</address>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </footer>-->
+<!--    {% if error %}-->
+<!--<script type="text/javascript">-->
+<!--    alert("用户名或密码错误！");-->
+<!--</script>-->
+<!--{% endif %}-->
+<!--    </body>-->
+<!--</html>-->

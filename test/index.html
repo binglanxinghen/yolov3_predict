@@ -1,0 +1,116 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="Colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Music</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/owl.carousel.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/magnific-popup.css">
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+
+		<link rel="stylesheet" href="css/verefyCode.css">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		</head>
+		<body>
+
+			<!-- Start contact Area -->
+			<section class="contact-area pt-100 pb-100" style="margin-top: 10%" id="contact">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="col-lg-4 title-section">
+							<h2 class="text-uppercase">
+								Register <br>
+								An<br>
+								Account
+							</h2>
+							<p>
+								畅想科技，引领未来
+							</p>
+						</div>
+						<div class="col-lg-8">
+								<form id="myForm" action="i1.html" method="post" class="contact-form" onsubmit="document.getElementById('modal-3360233').click();;return false;">
+									<div class="row justify-content-center">
+										<div class="col-lg-6">
+											<input name="fname" placeholder="用户名" class="common-input mt-20" required="" type="text" autofocus>
+
+											<input name="email" placeholder="邮箱" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mt-20" required="" type="email">
+
+											<input name="password" type="password" placeholder="密码" class="common-input mt-20" minlength="6" required>
+										</div>
+
+										<div class="col-lg-6">
+											<textarea class="common-textarea mt-20" name="message" placeholder="个人简介"></textarea>
+											<div class="col-md-12 column">
+												 <a id="modal-3360233" href="#modal-container-336023" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
+
+												<div class="modal fade" id="modal-container-336023" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+													<div class="modal-dialog">
+														<div class="modal-content" align="center">
+															<div class="modal-header">
+																 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																<h4 class="modal-title" id="myModalLabel">
+																	验证
+																</h4>
+															</div>
+															<div class="modal-body" style="width: 340px">
+																<div id="captcha" style="position: relative"></div>
+															</div>
+															<div class="modal-footer">
+																 <button id="btnclose" type="button" style="display: none" class="btn btn-default" data-dismiss="modal">关闭</button>
+															</div>
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+<!--											 onclick="return check(this.form)"-->
+											<input type="submit" class="primary-btn d-inline-flex align-items-center mt-20" /><span class="mr-10">注册</span><span class="lnr lnr-arrow-right"></span> <br>
+											<div class="alert-msg"></div>
+										</div>
+									</div>
+								</form>
+						</div>
+					</div>
+				</div>
+			</section>
+		<script type="text/javascript" src="js/verifyCode.js"></script>
+		<script type="text/javascript">
+		jigsaw.init(document.getElementById('captcha'), function () {
+			// alert('成功');
+			document.getElementById('btnclose').click();
+			document.getElementById("myForm").submit();
+		})
+		</script>
+			<footer class="footer-area">
+				<div class="container">
+					<div class="row footer-content">
+						<div class="col-lg-6 copy-right-text" align="center">
+							Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">不吃猫的鱼</a>
+							<address>厦门大学嘉庚学院</address>
+
+						</div>
+					</div>
+				</div>
+			</footer>
+		</body>
+	</html>

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}
+结果报告
+{% endblock %}
+
+{% block header %}
+<style>
+    .mt-20 {
+  margin-top: 20px;
+}
+    .common-textarea {
+  border: 1px solid #d4d5e0;
+  width: 30%;
+  display: inline;
+  background: transparent;
+  padding: 10px 20px;
+  color: #777777;
+  height: 12rem;
+  resize: none;
+}
+</style>
+{% endblock %}
+
+{% block main %}
+    {% if history %}
+    <div align="center" style="margin: auto;padding-bottom: 10%;padding-top: 10%">
+        <img style="max-width:300px;min-height:300px;width: 100%;height: auto" class="thumbnail" src="{{ url_for('static',filename=image_url ,_t=val1) }}">
+        <p class="text-center" style="color: black">时间：{{history.time|datetime_format}}</p>
+        <h3>结果</h3>
+        <div style="border: #eeeeee;width: auto;height: auto" class="text-center">
+            <textarea disabled id="text1" class="common-textarea mt-20" style="color: black" rows="5" cols="30" >{{history.result}}</textarea>
+        </div>
+        <a href="{{ url_for('download', history_id=history.history_id)}}"><button class="btn btn-info">下载</button></a>
+    </div>
+    <script>
+        var mess = document.getElementById('text1').value;
+    </script>
+    {% else %}
+    <div align="center" style="margin: auto;padding-bottom: 10%;padding-top: 10%">
+        <img style="max-width:300px;min-height:300px;width: 100%;height: auto" src="{{ url_for('static',filename=image_url,_t=val1) }}">
+        <p class="text-center" style="color: black">{{time|datetime_format}}</p>
+        <div style="border: #eeeeee;width: auto;height: auto" class="text-center">
+            <textarea disabled id="text2" class="common-textarea mt-20" style="color: black" rows="5" cols="30" >{{result}}</textarea>
+        </div>
+    </div>
+    <script>
+        var mess = document.getElementById('text2').value;
+    </script>
+    {% endif %}
+    <audio id="tts"></audio>
+    <script>
+        var srcAddress="http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=2&text="
+        var i=0;
+        var ttsAudio = document.getElementById('tts');
+        ttsAudio.playbackRate = 2;
+        // var ttText = document.getElementById('text2').value;
+        ttsAudio.src = srcAddress +mess;
+        ttsAudio.play();
+        document.addEventListener('touchstart', function() {
+            document.getElementById('tts').play()
+        })
+    </script>
+{% endblock %}

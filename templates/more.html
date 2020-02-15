@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %}
+百科
+{% endblock %}
+
+{% block header %}
+<script src="../static/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/css/demo.css"><!--演示页面样式，使用时可以不引用-->
+<link rel="stylesheet" href="../static/css/stream.css">
+<link rel="stylesheet" href="../static/dist/sortable.min.css">
+<script type="text/javascript" src="../static/dist/sortable.min.js"></script>
+<style>
+    </style>
+<script type="text/javascript">
+
+</script>
+{% endblock %}
+
+{% block main %}
+<main class="sortable" style="background-color: white">
+<div class="container">
+  <div class="wrapper">
+	<ul class="sortable__nav nav">
+	  <li>
+		<a data-sjslink="rose" style="color: black" class="nav__link">
+		  <strong>玫瑰</strong>
+		</a>
+	  </li>
+	  <li>
+		<a data-sjslink="daisy" style="color: black" class="nav__link">
+		  <strong>雏菊</strong>
+		</a>
+	  </li>
+	  <li>
+		<a data-sjslink="tulips" style="color: black" class="nav__link">
+		  <strong>郁金香</strong>
+		</a>
+	  </li>
+		<li>
+		<a data-sjslink="dandelion" style="color: black" class="nav__link">
+		  <strong>蒲公英</strong>
+		</a>
+	  </li>
+		<li>
+		<a data-sjslink="sunflowers" style="color: black" class="nav__link">
+		  <strong>向日葵</strong>
+		</a>
+	  </li>
+	</ul>
+	<div id="sortable" class="sjs-default">
+	</div>
+  </div>
+</div>
+</main>
+<script type="text/javascript">
+        var contenthtml ="";
+    var flower_list=['rose','daisy','tulips','dandelion','sunflowers'];
+    // var datas=[];
+    $.each(flower_list,function (index1,value1) {
+        list={'dataImg':[]};
+        for (var i=1;i<15;i++)
+        {
+            list.dataImg[list.dataImg.length]= {'img':'../static/picture/'+value1+'/'+value1+i+'.jpg','desc':"flower"};
+        }
+        $.each(list.dataImg, function (index, value) {
+            contenthtml += "<div data-sjsel='"+flower_list[index1]+"' >";
+            contenthtml += "<div class='card'>";
+            // contenthtml += "<div align=\"center\" class=\"thumbnail\">";
+            // contenthtml+="<h5><a href=\"detail.html\">"+value.title+"</a></h5>";
+            // contenthtml += "<div class=\"img-thumbnail\">";
+            contenthtml += "<img src='" + value.img + "' class='card__picture' alt=''>";
+            contenthtml += "<div class='card-infos'>";
+            contenthtml +="<h2 class='card__title'></h2>";
+            contenthtml +="<p class='card__text'>介绍</p>";
+            contenthtml += "</div>";
+            contenthtml += "</div>";
+            contenthtml += "</div>";
+        });
+    });
+    document.getElementById("sortable").innerHTML = contenthtml;
+</script>
+<script type="text/javascript">
+document.querySelector('#sortable').sortablejs()
+</script>
+{% endblock %}
