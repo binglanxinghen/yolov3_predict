@@ -4,7 +4,7 @@
 ### 第一条，任何人不得把checkpoint里面的模型上传到github上！！！
 
 该代码是部署的代码，可以任意拷贝到任何机器，只需要对应机器有安装git，git clone 这个仓库即可，运行代码需要额外的python包，需要pip install如下： 
-先创建虚拟环境，conda create -n py3.6 python==3.6.
+先创建虚拟环境，conda create -n py3.6 python==3.6.  
 1.opencv-python  
 2.tensorflow==1.14.0  
 3.pillow  
