@@ -7,12 +7,12 @@
 先创建虚拟环境，conda create -n py3.6 python==3.6.  
 1.opencv-python  
 2.tensorflow==1.14.0  
-3.pillow  
-4.flask  
-5.flask_paginate  
-6.flask_sqlalchemy  
-7.python-docx  
-8.easydict  
+3.pillow  == 6.2.1
+4.flask == 0.12.2 
+5.flask_paginate == 0.5.3 
+6.flask_sqlalchemy  == 2.4.0
+7.python-docx  == 0.2.4
+8.easydict  == 1.9
 其中如果涉及到动态库未安装，在例如libSM.so.6,centos机器可以yum whatprovides libSM.so.6，然后用yum install安装，例如yum install libSM-1.2.2-2.el7.x86_64 --setopt=protected_multilib=false，如果ubuntu系统，有类似动态库未安装，这里提供一个命令，一键安装所有库，apt-get install -y libsm6 libxext6 libxrender-dev libglib2.0-0
 
 本地代码改完如果需要上传到github上，需要检查一下第一条规则，不要把checkpoint里面的目录上次到github，因为模型太大了。
