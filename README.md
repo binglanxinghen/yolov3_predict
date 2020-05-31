@@ -10,7 +10,7 @@
 3.pillow  == 6.2.1  
 4.flask == 0.12.2   
 5.flask_paginate == 0.5.3   
-6.flask_sqlalchemy  == 2.4.0  
+6.flask_sqlalchemy  == 0.2.4  
 7.python-docx  == 0.2.4  
 8.easydict  == 1.9  
 9.Werkzeug == 0.12.2  
