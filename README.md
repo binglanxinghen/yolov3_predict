@@ -10,8 +10,8 @@
 3.pillow  ==6.2.1  
 4.flask ==0.12.2   
 5.flask_paginate ==0.5.3   
-6.flask_sqlalchemy  ==0.2.4  
-7.python-docx  ==0.2.4  
+6.flask_sqlalchemy  
+7.python-docx
 8.easydict  ==1.9  
 9.Werkzeug ==0.12.2  
 其中如果涉及到动态库未安装，在例如libSM.so.6,centos机器可以yum whatprovides libSM.so.6，然后用yum install安装，例如yum install libSM-1.2.2-2.el7.x86_64 --setopt=protected_multilib=false，如果ubuntu系统，有类似动态库未安装，先apt-get update，然后提供一个命令，一键安装所有库，apt-get install -y libsm6 libxext6 libxrender-dev libglib2.0-0
