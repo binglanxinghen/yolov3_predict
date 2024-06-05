@@ -1,7 +1,4 @@
 # yolov3_predict
-### 第一条，任何人不得把checkpoint里面的模型上传到github上！！！
-### 第一条，任何人不得把checkpoint里面的模型上传到github上！！！
-### 第一条，任何人不得把checkpoint里面的模型上传到github上！！！
 
 该代码是部署的代码，可以任意拷贝到任何机器，只需要对应机器有安装git，git clone 这个仓库即可，运行代码需要额外的python包，需要pip install如下： 
 先创建虚拟环境，安装Anaconda,输入./Anaconda3-5.2.0-Linux-x86_64.sh,接着source ~/.bashrc,然后conda create -n py3.6 python==3.6.  
